@@ -1,0 +1,64 @@
+========================================================================
+ CERTIFICACIÓN DE REGRESIÓN — erpnext_es_aeat
+========================================================================
+  [PASS] 303 casilla_01
+  [PASS] 303 casilla_03
+  [PASS] 303 casilla_04
+  [PASS] 303 casilla_06
+  [PASS] 303 casilla_07
+  [PASS] 303 casilla_09
+  [PASS] 303 casilla_28
+  [PASS] 303 casilla_29
+  [PASS] 303 casilla_30
+  [PASS] 303 casilla_31
+  [PASS] 303 casilla_27
+  [PASS] 303 casilla_45
+  [PASS] 303 casilla_46
+  [PASS] 303 casilla_69
+  [PASS] 303 casilla_71
+  [PASS] 303 BOE len>0
+  [PASS] 303 BOE devengada(27)
+  [PASS] 303 BOE deducible(45)
+  [PASS] 303 BOE resultado(46)
+  [PASS] 303 BOE liquidacion(71)
+  [PASS] 303 BOE cabecera modelo
+  [PASS] 111 casilla_02
+  [PASS] 111 casilla_03
+  [PASS] 111 casilla_05
+  [PASS] 111 casilla_06
+  [PASS] 111 casilla_28
+  [PASS] 111 casilla_29
+  [PASS] 111 casilla_30
+  [PASS] 111 BOE retenciones(29)
+  [PASS] 111 BOE resultado(30)
+  [PASS] 115 casilla_02
+  [PASS] 115 casilla_03
+  [PASS] 115 casilla_04
+  [PASS] 115 BOE retenciones(03)
+  [PASS] 130 periodo acumulado inicio
+  [PASS] 130 casilla_01
+  [PASS] 130 casilla_02
+  [PASS] 130 casilla_06
+  [PASS] 130 casilla_03
+  [PASS] 130 casilla_04
+  [PASS] 130 casilla_07
+  [PASS] 130 casilla_12
+  [PASS] 130 casilla_15
+  [PASS] 130 BOE resultado(15)
+  [PASS] 347 nº declarados (01)
+  [PASS] 347 importe total (02)
+  [PASS] 347 nº líneas
+  [PASS] 347 Cliente Grande total
+  [PASS] 347 Proveedor X total
+  [PASS] 347 C1 q1
+  [PASS] 347 C1 q2
+  [PASS] 347 BOE multi-registro
+  [PASS] 349 nº operadores (01)
+  [PASS] 349 importe total (02)
+  [PASS] 349 nº líneas (ES excluido)
+  [PASS] 349 DE clave E (entrega)
+  [PASS] 349 FR clave A (adquisición)
+  [PASS] 349 ES no incluido
+------------------------------------------------------------------------
+  58/58 comprobaciones superadas
+========================================================================

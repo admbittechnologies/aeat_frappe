@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "autoname": "field:title",
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "aeat_model",
+  "column_break_1",
+  "company",
+  "is_default",
+  "section_lines",
+  "lines"
+ ],
+ "fields": [
+  {"fieldname": "title", "fieldtype": "Data", "label": "Título", "reqd": 1, "unique": 1, "in_list_view": 1},
+  {"fieldname": "aeat_model", "fieldtype": "Select", "label": "Modelo AEAT", "options": "303\n111\n115\n130\n390\n347\n349", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+  {"fieldname": "company", "fieldtype": "Link", "label": "Empresa", "options": "Company", "in_list_view": 1, "description": "Vacío = mapa por defecto reutilizable por cualquier empresa."},
+  {"fieldname": "is_default", "fieldtype": "Check", "label": "Mapa por defecto", "description": "Se usa cuando no hay un mapa específico para la empresa. También se exporta como fixture."},
+  {"fieldname": "section_lines", "fieldtype": "Section Break", "label": "Casillas"},
+  {"fieldname": "lines", "fieldtype": "Table", "label": "Líneas de mapeo", "options": "AEAT Tax Map Line"}
+ ],
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "aeat",
+ "name": "AEAT Tax Map",
+ "owner": "Administrator",
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "share": 1, "print": 1, "email": 1},
+  {"role": "Accounts Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "print": 1, "email": 1},
+  {"role": "Accounts User", "read": 1, "report": 1, "print": 1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

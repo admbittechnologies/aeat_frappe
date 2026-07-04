@@ -1,0 +1,197 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "naming_rule": "By \"Naming Series\" field",
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "is_submittable": 1,
+  "field_order": [
+    "naming_series",
+    "company",
+    "col_h1",
+    "year",
+    "period_type",
+    "col_h2",
+    "date_start",
+    "date_end",
+    "calculation_state",
+    "sec_decl",
+    "declaration_type",
+    "previous_number",
+    "sec_boxes",
+    "casilla_01",
+    "casilla_02",
+    "sec_lines",
+    "lines",
+    "sec_audit",
+    "boxes_json"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Serie",
+      "options": "M349-.YYYY.-.####",
+      "default": "M349-.YYYY.-.####"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Empresa",
+      "options": "Company",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_h1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "year",
+      "fieldtype": "Select",
+      "label": "Ejercicio",
+      "reqd": 1,
+      "in_list_view": 1,
+      "options": "2021\n2022\n2023\n2024\n2025\n2026\n2027\n2028\n2029\n2030\n2031"
+    },
+    {
+      "fieldname": "period_type",
+      "fieldtype": "Select",
+      "label": "Periodo",
+      "options": "1T\n2T\n3T\n4T\n01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12\n0A",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_h2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "date_start",
+      "fieldtype": "Date",
+      "label": "Fecha inicio",
+      "read_only": 1
+    },
+    {
+      "fieldname": "date_end",
+      "fieldtype": "Date",
+      "label": "Fecha fin",
+      "read_only": 1
+    },
+    {
+      "fieldname": "calculation_state",
+      "fieldtype": "Select",
+      "label": "Estado",
+      "options": "Draft\nCalculated\nPresented",
+      "default": "Draft",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "sec_decl",
+      "fieldtype": "Section Break",
+      "label": "Tipo de declaración"
+    },
+    {
+      "fieldname": "declaration_type",
+      "fieldtype": "Select",
+      "label": "Tipo",
+      "options": "Ordinaria\nComplementaria\nSustitutiva",
+      "default": "Ordinaria"
+    },
+    {
+      "fieldname": "previous_number",
+      "fieldtype": "Data",
+      "label": "Nº justificante anterior",
+      "depends_on": "eval:doc.declaration_type!='Ordinaria'"
+    },
+    {
+      "fieldname": "sec_boxes",
+      "fieldtype": "Section Break",
+      "label": "Casillas"
+    },
+    {
+      "fieldname": "casilla_01",
+      "fieldtype": "Int",
+      "label": "[01] Nº de operadores intracomunitarios"
+    },
+    {
+      "fieldname": "casilla_02",
+      "fieldtype": "Currency",
+      "label": "[02] Importe total operaciones intracomunitarias"
+    },
+    {
+      "fieldname": "sec_lines",
+      "fieldtype": "Section Break",
+      "label": "Detalle"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Líneas",
+      "options": "AEAT Mod 349 Line"
+    },
+    {
+      "fieldname": "sec_audit",
+      "fieldtype": "Section Break",
+      "label": "Auditoría",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "boxes_json",
+      "fieldtype": "Long Text",
+      "label": "Snapshot de cálculo (JSON)",
+      "read_only": 1
+    }
+  ],
+  "links": [],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "aeat",
+  "name": "AEAT Mod 349",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "share": 1,
+      "print": 1,
+      "email": 1
+    },
+    {
+      "role": "Accounts Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1
+    },
+    {
+      "role": "Accounts User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

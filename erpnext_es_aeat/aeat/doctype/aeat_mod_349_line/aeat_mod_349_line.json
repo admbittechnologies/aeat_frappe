@@ -1,0 +1,16 @@
+{
+ "actions": [], "creation": "2026-01-01 00:00:00.000000", "doctype": "DocType",
+ "editable_grid": 1, "engine": "InnoDB", "istable": 1,
+ "field_order": ["party_type","party","party_name","vat","operation_key","amount"],
+ "fields": [
+  {"fieldname":"party_type","fieldtype":"Select","label":"Tipo","options":"Customer\nSupplier","in_list_view":1},
+  {"fieldname":"party","fieldtype":"Dynamic Link","label":"Operador","options":"party_type","in_list_view":1},
+  {"fieldname":"party_name","fieldtype":"Data","label":"Nombre","in_list_view":1},
+  {"fieldname":"vat","fieldtype":"Data","label":"NIF-IVA (VAT)","in_list_view":1},
+  {"fieldname":"operation_key","fieldtype":"Select","label":"Clave","options":"A\nE\nT\nS\nI\nM\nH\nR\nD\nC","default":"E","description":"E=entregas intracom, A=adquisiciones, S=servicios prestados, I=servicios adquiridos..."},
+  {"fieldname":"amount","fieldtype":"Currency","label":"Importe","in_list_view":1}
+ ],
+ "links": [], "modified": "2026-01-01 00:00:00.000000", "modified_by": "Administrator",
+ "module": "aeat", "name": "AEAT Mod 349 Line", "owner": "Administrator",
+ "permissions": [], "sort_field": "modified", "sort_order": "DESC", "states": []
+}

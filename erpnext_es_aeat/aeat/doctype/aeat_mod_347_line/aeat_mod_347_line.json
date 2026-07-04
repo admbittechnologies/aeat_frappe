@@ -1,0 +1,21 @@
+{
+ "actions": [], "creation": "2026-01-01 00:00:00.000000", "doctype": "DocType",
+ "editable_grid": 1, "engine": "InnoDB", "istable": 1,
+ "field_order": ["party_type","party","party_name","tax_id","operation_key","col1","total","q1","q2","q3","q4"],
+ "fields": [
+  {"fieldname":"party_type","fieldtype":"Select","label":"Tipo","options":"Customer\nSupplier","in_list_view":1},
+  {"fieldname":"party","fieldtype":"Dynamic Link","label":"Tercero","options":"party_type","in_list_view":1},
+  {"fieldname":"party_name","fieldtype":"Data","label":"Nombre","in_list_view":1},
+  {"fieldname":"tax_id","fieldtype":"Data","label":"NIF","in_list_view":1},
+  {"fieldname":"operation_key","fieldtype":"Select","label":"Clave","options":"A\nB\nC\nD\nE\nF\nG","default":"B","description":"A=compras, B=ventas (claves AEAT 347)"},
+  {"fieldname":"col1","fieldtype":"Column Break"},
+  {"fieldname":"total","fieldtype":"Currency","label":"Total anual","in_list_view":1},
+  {"fieldname":"q1","fieldtype":"Currency","label":"1T"},
+  {"fieldname":"q2","fieldtype":"Currency","label":"2T"},
+  {"fieldname":"q3","fieldtype":"Currency","label":"3T"},
+  {"fieldname":"q4","fieldtype":"Currency","label":"4T"}
+ ],
+ "links": [], "modified": "2026-01-01 00:00:00.000000", "modified_by": "Administrator",
+ "module": "aeat", "name": "AEAT Mod 347 Line", "owner": "Administrator",
+ "permissions": [], "sort_field": "modified", "sort_order": "DESC", "states": []
+}

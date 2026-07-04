@@ -1,0 +1,232 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "naming_rule": "By \"Naming Series\" field",
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "is_submittable": 1,
+  "field_order": [
+    "naming_series",
+    "company",
+    "col_h1",
+    "year",
+    "period_type",
+    "col_h2",
+    "date_start",
+    "date_end",
+    "calculation_state",
+    "sec_decl",
+    "declaration_type",
+    "previous_number",
+    "sec_boxes",
+    "casilla_01",
+    "casilla_02",
+    "casilla_03",
+    "casilla_04",
+    "casilla_05",
+    "casilla_06",
+    "casilla_07",
+    "casilla_12",
+    "casilla_14",
+    "casilla_15",
+    "sec_audit",
+    "boxes_json"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Serie",
+      "options": "M130-.YYYY.-.####",
+      "default": "M130-.YYYY.-.####"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Empresa",
+      "options": "Company",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_h1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "year",
+      "fieldtype": "Select",
+      "label": "Ejercicio",
+      "reqd": 1,
+      "in_list_view": 1,
+      "options": "2021\n2022\n2023\n2024\n2025\n2026\n2027\n2028\n2029\n2030\n2031"
+    },
+    {
+      "fieldname": "period_type",
+      "fieldtype": "Select",
+      "label": "Periodo",
+      "options": "1T\n2T\n3T\n4T",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_h2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "date_start",
+      "fieldtype": "Date",
+      "label": "Fecha inicio",
+      "read_only": 1
+    },
+    {
+      "fieldname": "date_end",
+      "fieldtype": "Date",
+      "label": "Fecha fin",
+      "read_only": 1
+    },
+    {
+      "fieldname": "calculation_state",
+      "fieldtype": "Select",
+      "label": "Estado",
+      "options": "Draft\nCalculated\nPresented",
+      "default": "Draft",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "sec_decl",
+      "fieldtype": "Section Break",
+      "label": "Tipo de declaración"
+    },
+    {
+      "fieldname": "declaration_type",
+      "fieldtype": "Select",
+      "label": "Tipo",
+      "options": "Ordinaria\nComplementaria\nSustitutiva",
+      "default": "Ordinaria"
+    },
+    {
+      "fieldname": "previous_number",
+      "fieldtype": "Data",
+      "label": "Nº justificante anterior",
+      "depends_on": "eval:doc.declaration_type!='Ordinaria'"
+    },
+    {
+      "fieldname": "sec_boxes",
+      "fieldtype": "Section Break",
+      "label": "Casillas"
+    },
+    {
+      "fieldname": "casilla_01",
+      "fieldtype": "Currency",
+      "label": "[01] Ingresos computables"
+    },
+    {
+      "fieldname": "casilla_02",
+      "fieldtype": "Currency",
+      "label": "[02] Gastos deducibles"
+    },
+    {
+      "fieldname": "casilla_03",
+      "fieldtype": "Currency",
+      "label": "[03] Rendimiento neto (01-02)"
+    },
+    {
+      "fieldname": "casilla_04",
+      "fieldtype": "Currency",
+      "label": "[04] 20% sobre rendimiento neto"
+    },
+    {
+      "fieldname": "casilla_05",
+      "fieldtype": "Currency",
+      "label": "[05] Pagos fraccionados anteriores"
+    },
+    {
+      "fieldname": "casilla_06",
+      "fieldtype": "Currency",
+      "label": "[06] Retenciones soportadas"
+    },
+    {
+      "fieldname": "casilla_07",
+      "fieldtype": "Currency",
+      "label": "[07] Pago fraccionado previo (07=04-05-06)"
+    },
+    {
+      "fieldname": "casilla_12",
+      "fieldtype": "Currency",
+      "label": "[12] Pago fraccionado del trimestre"
+    },
+    {
+      "fieldname": "casilla_14",
+      "fieldtype": "Currency",
+      "label": "[14] A deducir (decl. anteriores mismo periodo)"
+    },
+    {
+      "fieldname": "casilla_15",
+      "fieldtype": "Currency",
+      "label": "[15] Resultado"
+    },
+    {
+      "fieldname": "sec_audit",
+      "fieldtype": "Section Break",
+      "label": "Auditoría",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "boxes_json",
+      "fieldtype": "Long Text",
+      "label": "Snapshot de cálculo (JSON)",
+      "read_only": 1
+    }
+  ],
+  "links": [],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "aeat",
+  "name": "AEAT Mod 130",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "share": 1,
+      "print": 1,
+      "email": 1
+    },
+    {
+      "role": "Accounts Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1
+    },
+    {
+      "role": "Accounts User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}
