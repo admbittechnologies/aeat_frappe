@@ -15,17 +15,14 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "License :: OSI Approved :: GNU Affero General Public License v3",
 ]
-dependencies = [
-    "frappe>=15.0.0",
-    "erpnext>=15.0.0",
-]
-dynamic = ["version"]
+dependencies = []
+version = "1.0.0"
 
 [project.urls]
 Source = "https://github.com/admbittechnologies/aeat_frappe"
 
 [tool.setuptools]
-packages = ["erpnext_es_aeat", "erpnext_es_aeat.aeat", "erpnext_es_aeat.config", "erpnext_es_aeat.setup", "erpnext_es_aeat.tools"]
+packages = ["erpnext_es_aeat", "erpnext_es_aeat.aeat", "erpnext_es_aeat.aeat.doctype", "erpnext_es_aeat.aeat.doctype.aeat_boe_export_config", "erpnext_es_aeat.aeat.doctype.aeat_boe_export_config_line", "erpnext_es_aeat.aeat.doctype.aeat_mod_111", "erpnext_es_aeat.aeat.doctype.aeat_mod_115", "erpnext_es_aeat.aeat.doctype.aeat_mod_130", "erpnext_es_aeat.aeat.doctype.aeat_mod_303", "erpnext_es_aeat.aeat.doctype.aeat_mod_347", "erpnext_es_aeat.aeat.doctype.aeat_mod_347_line", "erpnext_es_aeat.aeat.doctype.aeat_mod_349", "erpnext_es_aeat.aeat.doctype.aeat_mod_349_line", "erpnext_es_aeat.aeat.doctype.aeat_mod_390", "erpnext_es_aeat.aeat.doctype.aeat_tax_map", "erpnext_es_aeat.aeat.doctype.aeat_tax_map_line", "erpnext_es_aeat.config", "erpnext_es_aeat.setup", "erpnext_es_aeat.tools"]
 include-package-data = true
 zip-safe = false
 
