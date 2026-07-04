@@ -4,8 +4,8 @@ import frappe
 from frappe.utils import flt
 from frappe.model.document import Document
 
-from erpnext_es_aeat.erpnext_es_aeat.aeat.report_base import AEATReportMixin
-from erpnext_es_aeat.erpnext_es_aeat.aeat import tax_engine, boe
+from erpnext_es_aeat.aeat.report_base import AEATReportMixin
+from erpnext_es_aeat.aeat import tax_engine, boe
 
 
 class AEATMod347(AEATReportMixin, Document):

@@ -4,8 +4,8 @@
 import frappe
 from frappe.utils import flt
 
-from erpnext_es_aeat.erpnext_es_aeat.aeat.report_base import AEATReportMixin
-from erpnext_es_aeat.erpnext_es_aeat.aeat import boe
+from erpnext_es_aeat.aeat.report_base import AEATReportMixin
+from erpnext_es_aeat.aeat import boe
 
 
 class AEATMod390(AEATReportMixin, frappe.model.document.Document):

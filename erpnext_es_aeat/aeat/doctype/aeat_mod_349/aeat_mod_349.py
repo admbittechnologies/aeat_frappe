@@ -4,8 +4,8 @@ import frappe
 from frappe.utils import flt
 from frappe.model.document import Document
 
-from erpnext_es_aeat.erpnext_es_aeat.aeat.report_base import AEATReportMixin
-from erpnext_es_aeat.erpnext_es_aeat.aeat import tax_engine, boe
+from erpnext_es_aeat.aeat.report_base import AEATReportMixin
+from erpnext_es_aeat.aeat import tax_engine, boe
 
 # EU VAT prefixes excluding Spain (ES). Used to detect intracommunity ops via
 # the invoice tax_id / VAT number prefix.

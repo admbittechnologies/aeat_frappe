@@ -5,7 +5,7 @@ Live certification against a REAL ERPNext instance.
 
 Run it inside the bench:
 
-    bench --site <site> execute erpnext_es_aeat.erpnext_es_aeat.tools.live_check.run
+    bench --site <site> execute erpnext_es_aeat.tools.live_check.run
 
 It creates a throwaway company + accounts + per-rate tax templates, posts the
 "Modelo 303" scenario as real (submitted) Sales/Purchase Invoices, runs the

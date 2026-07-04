@@ -15,7 +15,7 @@ from datetime import date
 import frappe
 from frappe.utils import flt, getdate
 
-from erpnext_es_aeat.erpnext_es_aeat.aeat import boe, tax_engine
+from erpnext_es_aeat.aeat import boe, tax_engine
 
 PERIOD_MONTHS = {
     "01": 1, "02": 2, "03": 3, "04": 4, "05": 5, "06": 6,
