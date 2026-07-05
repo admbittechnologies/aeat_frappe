@@ -105,7 +105,7 @@ El archivo `scripts/import_pgc_mapping.py` importa un mapeo completo segun el Pl
 Para importar:
 
 ```bash
-bench --site [tu-sitio] execute erpnext_es_aeat.erpnext_es_aeat.setup.install.after_install
+bench --site [tu-sitio] execute erpnext_es_aeat.setup.install.after_install
 ```
 
 Esto crea automaticamente:

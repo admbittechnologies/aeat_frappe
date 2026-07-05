@@ -92,6 +92,6 @@ sudo -u "${FRAPPE_USER}" -H bash -lc "
 echo "--- live check (dentro de ERPNext) ---"
 sudo -u "${FRAPPE_USER}" -H bash -lc "
   cd ${BENCH_DIR}
-  bench --site '${SITE}' execute erpnext_es_aeat.erpnext_es_aeat.tools.live_check.run
+  bench --site '${SITE}' execute erpnext_es_aeat.tools.live_check.run
 "
 echo '==> BOOTSTRAP_OK'

@@ -30,13 +30,13 @@ spec.loader.exec_module(frappe)
 sys.path.insert(0, APP_ROOT)
 
 # Real app code (engine + shipped seed data + controllers)
-from erpnext_es_aeat.erpnext_es_aeat.setup import install            # noqa: E402
-from erpnext_es_aeat.erpnext_es_aeat.doctype.aeat_mod_303 import aeat_mod_303  # noqa: E402
-from erpnext_es_aeat.erpnext_es_aeat.doctype.aeat_mod_111 import aeat_mod_111  # noqa: E402
-from erpnext_es_aeat.erpnext_es_aeat.doctype.aeat_mod_115 import aeat_mod_115  # noqa: E402
-from erpnext_es_aeat.erpnext_es_aeat.doctype.aeat_mod_130 import aeat_mod_130  # noqa: E402
-from erpnext_es_aeat.erpnext_es_aeat.doctype.aeat_mod_347 import aeat_mod_347  # noqa: E402
-from erpnext_es_aeat.erpnext_es_aeat.doctype.aeat_mod_349 import aeat_mod_349  # noqa: E402
+from erpnext_es_aeat.setup import install            # noqa: E402
+from erpnext_es_aeat.aeat.doctype.aeat_mod_303 import aeat_mod_303  # noqa: E402
+from erpnext_es_aeat.aeat.doctype.aeat_mod_111 import aeat_mod_111  # noqa: E402
+from erpnext_es_aeat.aeat.doctype.aeat_mod_115 import aeat_mod_115  # noqa: E402
+from erpnext_es_aeat.aeat.doctype.aeat_mod_130 import aeat_mod_130  # noqa: E402
+from erpnext_es_aeat.aeat.doctype.aeat_mod_347 import aeat_mod_347  # noqa: E402
+from erpnext_es_aeat.aeat.doctype.aeat_mod_349 import aeat_mod_349  # noqa: E402
 
 # ==========================================================================
 # Fixtures

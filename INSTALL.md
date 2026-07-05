@@ -128,7 +128,7 @@ frappe.db.commit()
 ### 8. Importar mapeo PGC predefinido (opcional pero recomendado)
 
 ```bash
-bench --site [tu-sitio] execute erpnext_es_aeat.erpnext_es_aeat.setup.install.setup_tax_maps
+bench --site [tu-sitio] execute erpnext_es_aeat.setup.install.setup_tax_maps
 ```
 
 O importar desde el JSON incluido:
