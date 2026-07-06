@@ -87,6 +87,10 @@ class AEATReportMixin:
     @frappe.whitelist()
     def calculate(self):
         """Compute every casilla and persist the document."""
+        # Reload from DB if fields are missing (e.g. when called via run_doc_method
+        # with only a partial doc dict)
+        if not self.year or not self.period_type:
+            self.reload()
         self.compute_period()
         boxes = tax_engine.compute_boxes(
             self.company, self.date_start, self.date_end, self.map_lines_as_dicts()
