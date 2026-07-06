@@ -127,6 +127,9 @@ class AEATReportMixin:
     def export_boe(self):
         if not self.boe_config_name:
             frappe.throw(f"El modelo {self.aeat_model_code} no tiene export BOE configurado.")
+        # Reload to get latest calculated values from DB (needed when called
+        # via run_doc_method with a partial doc dict)
+        self.reload()
         text = boe.generate(self, self.boe_config_name)
         filename = f"{self.aeat_model_code}_{self.year}_{self.period_type}.txt"
         f = boe.attach_boe_file(self, text, filename)
