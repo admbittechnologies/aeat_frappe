@@ -1,0 +1,201 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"b00aeat\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Modelos tributarios AEAT</b></span>\", \"col\": 12}}, {\"id\": \"b01aeat\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Modelo 303\", \"col\": 3}}, {\"id\": \"b02aeat\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Modelo 111\", \"col\": 3}}, {\"id\": \"b03aeat\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Modelo 115\", \"col\": 3}}, {\"id\": \"b04aeat\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Modelo 130\", \"col\": 3}}, {\"id\": \"b05aeat\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Modelo 390\", \"col\": 3}}, {\"id\": \"b06aeat\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Modelo 347\", \"col\": 3}}, {\"id\": \"b07aeat\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Modelo 349\", \"col\": 3}}, {\"id\": \"b08aeat\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Accesos</b></span>\", \"col\": 12}}, {\"id\": \"b09aeat\", \"type\": \"card\", \"data\": {\"card_name\": \"Liquidaciones\", \"col\": 4}}, {\"id\": \"b10aeat\", \"type\": \"card\", \"data\": {\"card_name\": \"Resumen anual\", \"col\": 4}}, {\"id\": \"b11aeat\", \"type\": \"card\", \"data\": {\"card_name\": \"Informativas\", \"col\": 4}}, {\"id\": \"b12aeat\", \"type\": \"card\", \"data\": {\"card_name\": \"Configuraci\\u00f3n\", \"col\": 4}}]",
+ "creation": "2026-01-01 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "file",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "AEAT España",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Liquidaciones",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modelo 303 · IVA",
+   "link_to": "AEAT Mod 303",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modelo 111 · Retenciones trabajo/actividades",
+   "link_to": "AEAT Mod 111",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modelo 115 · Retenciones alquileres",
+   "link_to": "AEAT Mod 115",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modelo 130 · Pago fraccionado",
+   "link_to": "AEAT Mod 130",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Resumen anual",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modelo 390 · Resumen anual IVA",
+   "link_to": "AEAT Mod 390",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Informativas",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modelo 347 · Operaciones con terceros",
+   "link_to": "AEAT Mod 347",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modelo 349 · Operaciones intracomunitarias",
+   "link_to": "AEAT Mod 349",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Configuración",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Mapa de impuestos (casilla → cuentas)",
+   "link_to": "AEAT Tax Map",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Configuración de fichero BOE",
+   "link_to": "AEAT BOE Export Config",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "aeat",
+ "name": "AEAT",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 99.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Modelo 303",
+   "link_to": "AEAT Mod 303",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "Modelo 111",
+   "link_to": "AEAT Mod 111",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Modelo 115",
+   "link_to": "AEAT Mod 115",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Modelo 130",
+   "link_to": "AEAT Mod 130",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "Modelo 390",
+   "link_to": "AEAT Mod 390",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "label": "Modelo 347",
+   "link_to": "AEAT Mod 347",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Modelo 349",
+   "link_to": "AEAT Mod 349",
+   "type": "DocType"
+  }
+ ],
+ "title": "AEAT España"
+}
