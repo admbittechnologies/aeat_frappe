@@ -87,9 +87,9 @@ class AEATReportMixin:
     @frappe.whitelist()
     def calculate(self):
         """Compute every casilla and persist the document."""
-        # Reload from DB if fields are missing (e.g. when called via run_doc_method
-        # with only a partial doc dict)
-        if not self.year or not self.period_type:
+        # Reload from DB if called via run_doc_method with only a partial doc dict.
+        # This avoids constant-field errors on save while keeping computed values.
+        if not getattr(self, "date_start", None) or not getattr(self, "date_end", None):
             self.reload()
         self.compute_period()
         boxes = tax_engine.compute_boxes(
@@ -97,11 +97,6 @@ class AEATReportMixin:
         )
         self.assign_boxes(boxes)
         self.extra_calculation()
-        self.calculation_state = "Calculated"
-        # Reload to avoid overwriting constant fields (creation, modified, etc.)
-        # when called via run_doc_method
-        name = self.name
-        self.reload()
         self.calculation_state = "Calculated"
         self.save()
         frappe.msgprint("Cálculo completado.", indicator="green")
