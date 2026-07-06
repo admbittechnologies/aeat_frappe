@@ -41,8 +41,12 @@ class AEATReportMixin:
     # -- period -----------------------------------------------------------
     def compute_period(self):
         """Set ``date_start`` / ``date_end`` from ``year`` + ``period_type``."""
+        if not self.year:
+            frappe.throw("El campo 'Año' es obligatorio para calcular el período.")
         year = int(self.year)
         pt = self.period_type
+        if not pt:
+            frappe.throw("El campo 'Periodo' es obligatorio para calcular el período.")
         if pt == "0A":
             self.date_start = date(year, 1, 1)
             self.date_end = date(year, 12, 31)
