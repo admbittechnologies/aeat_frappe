@@ -275,10 +275,92 @@ def after_install():
         frappe.log_error("erpnext_es_aeat: _fix_doctype_modules failed during after_install")
 
     try:
+        _ensure_workspace()
+    except Exception:
+        frappe.log_error("erpnext_es_aeat: _ensure_workspace failed during after_install")
+
+    try:
         seed()
     except Exception:
         frappe.log_error("erpnext_es_aeat: seed failed during after_install")
         raise
+
+
+def _ensure_workspace():
+    """Create the AEAT workspace if it doesn't exist."""
+    if frappe.db.exists("Workspace", "AEAT"):
+        return
+
+    workspace = frappe.new_doc("Workspace")
+    workspace.name = "AEAT"
+    workspace.label = "AEAT España"
+    workspace.title = "AEAT España"
+    workspace.icon = "file"
+    workspace.module = "aeat"
+    workspace.public = 1
+    workspace.sequence_id = 99.0
+    workspace.is_hidden = 0
+    workspace.hide_custom = 0
+
+    # Shortcuts
+    shortcuts = [
+        ("Modelo 303", "AEAT Mod 303", "Blue"),
+        ("Modelo 111", "AEAT Mod 111", "Cyan"),
+        ("Modelo 115", "AEAT Mod 115", "Green"),
+        ("Modelo 130", "AEAT Mod 130", "Orange"),
+        ("Modelo 390", "AEAT Mod 390", "Pink"),
+        ("Modelo 347", "AEAT Mod 347", "Purple"),
+        ("Modelo 349", "AEAT Mod 349", "Yellow"),
+    ]
+    for label, link_to, color in shortcuts:
+        workspace.append("shortcuts", {
+            "label": label,
+            "link_to": link_to,
+            "type": "DocType",
+            "doc_view": "List",
+            "color": color,
+        })
+
+    # Links - Card Breaks and Links
+    links = [
+        ("Card Break", "Liquidaciones", None, None),
+        ("Link", "Modelo 303 · IVA", "AEAT Mod 303", "DocType"),
+        ("Link", "Modelo 111 · Retenciones trabajo/actividades", "AEAT Mod 111", "DocType"),
+        ("Link", "Modelo 115 · Retenciones alquileres", "AEAT Mod 115", "DocType"),
+        ("Link", "Modelo 130 · Pago fraccionado", "AEAT Mod 130", "DocType"),
+        ("Card Break", "Resumen anual", None, None),
+        ("Link", "Modelo 390 · Resumen anual IVA", "AEAT Mod 390", "DocType"),
+        ("Card Break", "Informativas", None, None),
+        ("Link", "Modelo 347 · Operaciones con terceros", "AEAT Mod 347", "DocType"),
+        ("Link", "Modelo 349 · Operaciones intracomunitarias", "AEAT Mod 349", "DocType"),
+        ("Card Break", "Configuración", None, None),
+        ("Link", "Mapa de impuestos (casilla → cuentas)", "AEAT Tax Map", "DocType"),
+        ("Link", "Configuración de fichero BOE", "AEAT BOE Export Config", "DocType"),
+    ]
+    for link_type, label, link_to, link_type_val in links:
+        if link_type == "Card Break":
+            workspace.append("links", {
+                "type": "Card Break",
+                "label": label,
+                "link_count": 0,
+                "hidden": 0,
+                "is_query_report": 0,
+                "onboard": 0,
+            })
+        else:
+            workspace.append("links", {
+                "type": "Link",
+                "label": label,
+                "link_to": link_to,
+                "link_type": link_type_val,
+                "hidden": 0,
+                "is_query_report": 0,
+                "onboard": 0,
+                "dependencies": "",
+            })
+
+    workspace.insert(ignore_permissions=True)
+    frappe.db.commit()
 
 
 def _fix_doctype_modules():
