@@ -22,6 +22,10 @@ after_migrate = "erpnext_es_aeat.setup.install.after_migrate"
 # ------------------------------------------------------------------
 fixtures = [
     {
+        "doctype": "Workspace",
+        "filters": [["name", "=", "AEAT"]],
+    },
+    {
         "doctype": "AEAT Tax Map",
         "filters": [["is_default", "=", 1]],
     },

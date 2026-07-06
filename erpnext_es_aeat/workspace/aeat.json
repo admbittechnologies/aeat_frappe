@@ -16,7 +16,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Liquidaciones",
-   "link_count": 4,
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -64,7 +64,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Resumen anual",
-   "link_count": 1,
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -82,7 +82,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Informativas",
-   "link_count": 2,
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -110,7 +110,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Configuración",
-   "link_count": 2,
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -152,7 +152,6 @@
    "doc_view": "List",
    "label": "Modelo 303",
    "link_to": "AEAT Mod 303",
-   "stats_filter": "",
    "type": "DocType"
   },
   {
@@ -160,7 +159,6 @@
    "doc_view": "List",
    "label": "Modelo 111",
    "link_to": "AEAT Mod 111",
-   "stats_filter": "",
    "type": "DocType"
   },
   {
@@ -168,7 +166,6 @@
    "doc_view": "List",
    "label": "Modelo 115",
    "link_to": "AEAT Mod 115",
-   "stats_filter": "",
    "type": "DocType"
   },
   {
@@ -176,7 +173,6 @@
    "doc_view": "List",
    "label": "Modelo 130",
    "link_to": "AEAT Mod 130",
-   "stats_filter": "",
    "type": "DocType"
   },
   {
@@ -184,7 +180,6 @@
    "doc_view": "List",
    "label": "Modelo 390",
    "link_to": "AEAT Mod 390",
-   "stats_filter": "",
    "type": "DocType"
   },
   {
@@ -192,7 +187,6 @@
    "doc_view": "List",
    "label": "Modelo 347",
    "link_to": "AEAT Mod 347",
-   "stats_filter": "",
    "type": "DocType"
   },
   {
@@ -200,7 +194,6 @@
    "doc_view": "List",
    "label": "Modelo 349",
    "link_to": "AEAT Mod 349",
-   "stats_filter": "",
    "type": "DocType"
   }
  ],
