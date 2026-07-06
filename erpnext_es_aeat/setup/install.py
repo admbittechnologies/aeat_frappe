@@ -302,6 +302,7 @@ def _ensure_workspace():
     workspace.sequence_id = 99.0
     workspace.is_hidden = 0
     workspace.hide_custom = 0
+    workspace.content = '[{"id": "b00aeat", "type": "header", "data": {"text": "<span class=\\"h4\\"><b>Modelos tributarios AEAT</b></span>", "col": 12}}, {"id": "b01aeat", "type": "shortcut", "data": {"shortcut_name": "Modelo 303", "col": 3}}, {"id": "b02aeat", "type": "shortcut", "data": {"shortcut_name": "Modelo 111", "col": 3}}, {"id": "b03aeat", "type": "shortcut", "data": {"shortcut_name": "Modelo 115", "col": 3}}, {"id": "b04aeat", "type": "shortcut", "data": {"shortcut_name": "Modelo 130", "col": 3}}, {"id": "b05aeat", "type": "shortcut", "data": {"shortcut_name": "Modelo 390", "col": 3}}, {"id": "b06aeat", "type": "shortcut", "data": {"shortcut_name": "Modelo 347", "col": 3}}, {"id": "b07aeat", "type": "shortcut", "data": {"shortcut_name": "Modelo 349", "col": 3}}, {"id": "b08aeat", "type": "header", "data": {"text": "<span class=\\"h4\\"><b>Accesos</b></span>", "col": 12}}, {"id": "b09aeat", "type": "card", "data": {"card_name": "Liquidaciones", "col": 4}}, {"id": "b10aeat", "type": "card", "data": {"card_name": "Resumen anual", "col": 4}}, {"id": "b11aeat", "type": "card", "data": {"card_name": "Informativas", "col": 4}}, {"id": "b12aeat", "type": "card", "data": {"card_name": "Configuración", "col": 4}}]'
 
     # Shortcuts
     shortcuts = [
