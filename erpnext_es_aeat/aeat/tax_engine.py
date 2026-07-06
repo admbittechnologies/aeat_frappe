@@ -231,11 +231,19 @@ def compute_boxes(company, date_start, date_end, lines):
     for line in lines:
         fn = int(line.get("field_number"))
         res = results.setdefault(fn, BoxResult(field_number=fn, name=line.get("box_name") or ""))
-        accounts = _resolve_accounts(company, _line_accounts(line))
+        raw_accounts = _line_accounts(line)
+        accounts = _resolve_accounts(company, raw_accounts)
         sign = -1.0 if line.get("inverse") else 1.0
         move_type = line.get("move_type") or MOVE_ALL
         field_type = line.get("field_type") or FIELD_AMOUNT
         source = line.get("source") or "tax"
+
+        # DEBUG logging
+        frappe.log_error(
+            f"AEAT DEBUG compute_boxes: fn={fn}, raw_accounts={raw_accounts}, "
+            f"resolved_accounts={accounts}, source={source}, field_type={field_type}, "
+            f"move_type={move_type}, date_start={date_start}, date_end={date_end}"
+        )
 
         if source == "gl":
             # Plain GL balance (e.g. modelo 130 ingresos/gastos groups)
@@ -245,9 +253,17 @@ def compute_boxes(company, date_start, date_end, lines):
                     ref=("GL", ",".join(sorted(accounts)), sign * bal, 0.0))
             continue
 
-        for row in _tax_rows(company, date_start, date_end, accounts, move_type):
+        tax_rows = _tax_rows(company, date_start, date_end, accounts, move_type)
+        frappe.log_error(
+            f"AEAT DEBUG tax_rows: fn={fn}, found={len(tax_rows)} rows, accounts={accounts}"
+        )
+        for row in tax_rows:
             cuota = flt(row.base_tax_amount)
             base = _derive_base(row.rate, cuota)
+            frappe.log_error(
+                f"AEAT DEBUG row: parent={row.parent}, account_head={row.account_head}, "
+                f"rate={row.rate}, cuota={cuota}, base={base}"
+            )
             # Refund rows carry the natural sign already (negative tax_amount on
             # returns), so we only apply the configured inversion.
             add_base = sign * base if field_type in (FIELD_BASE, FIELD_BOTH) else 0.0
