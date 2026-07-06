@@ -10,7 +10,7 @@
  "icon": "file",
  "idx": 0,
  "is_hidden": 0,
- "label": "AEAT España",
+ "label": "AEAT Espana",
  "links": [
   {
    "hidden": 0,
@@ -109,7 +109,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Configuración",
+   "label": "Configuracion",
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -118,7 +118,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Mapa de impuestos (casilla → cuentas)",
+   "label": "Mapa de impuestos (casilla a cuentas)",
    "link_to": "AEAT Tax Map",
    "link_type": "DocType",
    "onboard": 0,
@@ -128,7 +128,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Configuración de fichero BOE",
+   "label": "Configuracion de fichero BOE",
    "link_to": "AEAT BOE Export Config",
    "link_type": "DocType",
    "onboard": 0,
@@ -197,5 +197,5 @@
    "type": "DocType"
   }
  ],
- "title": "AEAT España"
+ "title": "AEAT Espana"
 }
