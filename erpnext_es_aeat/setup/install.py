@@ -288,13 +288,14 @@ def after_install():
 
 def _ensure_workspace():
     """Create the AEAT workspace if it doesn't exist."""
-    if frappe.db.exists("Workspace", "AEAT"):
+    workspace_name = "AEAT España"
+    if frappe.db.exists("Workspace", workspace_name):
         return
 
     workspace = frappe.new_doc("Workspace")
-    workspace.name = "AEAT"
-    workspace.label = "AEAT España"
-    workspace.title = "AEAT España"
+    workspace.name = workspace_name
+    workspace.label = workspace_name
+    workspace.title = workspace_name
     workspace.icon = "file"
     workspace.module = "aeat"
     workspace.public = 1
