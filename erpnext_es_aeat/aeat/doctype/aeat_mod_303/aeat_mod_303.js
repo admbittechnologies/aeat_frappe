@@ -23,12 +23,13 @@ frappe.ui.form.on('AEAT Mod 303', {
                     freeze_message: __('Generando fichero…'),
                     callback: (r) => {
                         if (r && r.message) {
-                            frappe.call({
-                                method: 'frappe.handler.download_file',
-                                args: { file_url: r.message },
-                                callback: null
-                            });
-                            window.open(r.message, '_blank');
+                            // Force download instead of opening in new tab
+                            const a = document.createElement('a');
+                            a.href = r.message;
+                            a.download = r.message.split('/').pop();
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
                         }
                         frm.reload_doc();
                     }
