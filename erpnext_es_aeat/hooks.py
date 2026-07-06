@@ -9,7 +9,7 @@ app_description = (
 )
 app_email = "info@bit-technologies.eu"
 app_license = "AGPL-3.0-or-later"
-required_apps = ["erpnext"]
+required_apps = ["frappe/erpnext"]
 
 # ------------------------------------------------------------------
 # Seeding of default tax maps and BOE export configs after install

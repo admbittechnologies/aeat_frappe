@@ -1,7 +1,3 @@
-[build-system]
-requires = ["setuptools>=45", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "erpnext_es_aeat"
 authors = [
@@ -9,22 +5,16 @@ authors = [
 ]
 description = "Modelos tributarios españoles (AEAT) para ERPNext: 303, 111, 115, 130, 390, 347 y 349"
 readme = "README.md"
-license = {file = "license.txt"}
 requires-python = ">=3.10"
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "License :: OSI Approved :: GNU Affero General Public License v3",
-]
-dependencies = []
-version = "1.0.0"
+dynamic = ["version"]
 
-[project.urls]
-Source = "https://github.com/admbittechnologies/aeat_frappe"
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
 
-[tool.setuptools]
-packages = ["erpnext_es_aeat", "erpnext_es_aeat.aeat", "erpnext_es_aeat.aeat.doctype", "erpnext_es_aeat.aeat.doctype.aeat_boe_export_config", "erpnext_es_aeat.aeat.doctype.aeat_boe_export_config_line", "erpnext_es_aeat.aeat.doctype.aeat_mod_111", "erpnext_es_aeat.aeat.doctype.aeat_mod_115", "erpnext_es_aeat.aeat.doctype.aeat_mod_130", "erpnext_es_aeat.aeat.doctype.aeat_mod_303", "erpnext_es_aeat.aeat.doctype.aeat_mod_347", "erpnext_es_aeat.aeat.doctype.aeat_mod_347_line", "erpnext_es_aeat.aeat.doctype.aeat_mod_349", "erpnext_es_aeat.aeat.doctype.aeat_mod_349_line", "erpnext_es_aeat.aeat.doctype.aeat_mod_390", "erpnext_es_aeat.aeat.doctype.aeat_tax_map", "erpnext_es_aeat.aeat.doctype.aeat_tax_map_line", "erpnext_es_aeat.config", "erpnext_es_aeat.setup", "erpnext_es_aeat.tools"]
-include-package-data = true
-zip-safe = false
+[tool.flit.module]
+name = "erpnext_es_aeat"
 
-[tool.setuptools.package-data]
-"*" = ["*.json", "*.md", "*.py", "*.txt", "*.csv", "*.html", "*.js", "*.xml", "*.css", "*.scss", "*.png", "*.jpg", "*.svg"]
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0,<16.0.0"
+erpnext = ">=15.0.0,<16.0.0"
