@@ -98,6 +98,11 @@ class AEATReportMixin:
         self.assign_boxes(boxes)
         self.extra_calculation()
         self.calculation_state = "Calculated"
+        # Reload to avoid overwriting constant fields (creation, modified, etc.)
+        # when called via run_doc_method
+        name = self.name
+        self.reload()
+        self.calculation_state = "Calculated"
         self.save()
         frappe.msgprint("Cálculo completado.", indicator="green")
         return True
