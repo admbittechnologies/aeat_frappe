@@ -120,6 +120,7 @@ def render_line(line, doc, context=None):
         return _format_alpha(line.get("fixed_value"), size, "left")
 
     value = _resolve(line.get("expression"), doc, context)
+    frappe.log_error(f"AEAT DEBUG _resolve returned: expr={expr}, value={value}, type={type(value)}")
 
     if etype == ALPHA:
         return _format_alpha(value, size, line.get("alignment") or "left")
