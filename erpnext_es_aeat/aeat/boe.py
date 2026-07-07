@@ -151,6 +151,9 @@ def generate_from_lines(lines, doc, context=None):
 def generate(doc, config_name, context=None):
     """Generate the full BOE text for doc using config_name."""
     config = frappe.get_doc("AEAT BOE Export Config", config_name)
+    frappe.log_error(f"AEAT DEBUG generate: config={config_name}, lines={len(config.lines)}")
+    for line in config.lines:
+        frappe.log_error(f"AEAT DEBUG generate line: seq={line.sequence}, expr={repr(line.expression)}, type={line.export_type}")
     text = generate_from_lines(config.lines, doc, context)
 
     if config.record_length and config.record_length > 0:
