@@ -110,6 +110,12 @@ def render_line(line, doc, context=None):
     etype = line.get("export_type")
     size = int(line.get("size") or 0)
 
+    # DEBUG logging
+    expr = line.get("expression", "")
+    if expr and not expr.startswith("="):
+        val = getattr(doc, expr, None) if not isinstance(doc, dict) else doc.get(expr)
+        frappe.log_error(f"AEAT DEBUG render_line: expr={expr}, val={val}, type={etype}, size={size}")
+
     if etype == FIXED:
         return _format_alpha(line.get("fixed_value"), size, "left")
 
