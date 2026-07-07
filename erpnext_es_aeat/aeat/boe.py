@@ -79,18 +79,23 @@ def _format_alpha(value, size, alignment="left"):
 
 
 def _format_integer(value, size, decimal_size=0):
+    frappe.log_error(f"AEAT DEBUG _format_integer: value={repr(value)}, type={type(value)}, size={size}")
     val = flt(value)
     if decimal_size:
         val = val * (10 ** decimal_size)
     n = int(round(val))
     body = str(abs(n))
     if n < 0:
-        return ("N" + body).rjust(size, "0")[:size]
-    return body.rjust(size, "0")[:size]
+        result = ("N" + body).rjust(size, "0")[:size]
+    else:
+        result = body.rjust(size, "0")[:size]
+    frappe.log_error(f"AEAT DEBUG _format_integer result: {repr(result)}")
+    return result
 
 
 def _format_float(value, size, decimal_size=2, apply_sign=False,
                   positive_sign="0", negative_sign="N"):
+    frappe.log_error(f"AEAT DEBUG _format_float: value={repr(value)}, type={type(value)}, size={size}, decimal_size={decimal_size}, apply_sign={apply_sign}")
     val = flt(value)
     negative = val < 0
     cents = int(round(abs(val) * (10 ** decimal_size)))
@@ -98,8 +103,11 @@ def _format_float(value, size, decimal_size=2, apply_sign=False,
     if apply_sign:
         sign_char = negative_sign if negative else positive_sign
         body = body.rjust(size - 1, "0")
-        return (sign_char + body)[:size]
-    return body.rjust(size, "0")[:size]
+        result = (sign_char + body)[:size]
+    else:
+        result = body.rjust(size, "0")[:size]
+    frappe.log_error(f"AEAT DEBUG _format_float result: {repr(result)}")
+    return result
 
 
 def _format_boolean(value, bool_yes="X", bool_no=" "):
