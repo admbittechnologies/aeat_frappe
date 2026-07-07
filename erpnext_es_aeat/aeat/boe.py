@@ -113,9 +113,7 @@ def render_line(line, doc, context=None):
     label = line.get("label", "?")
 
     if etype == FIXED:
-        result = _format_alpha(line.get("fixed_value"), size, "left")
-        frappe.log_error(f"AEAT BOE [{seq}/{label}] FIXED -> {repr(result)}")
-        return result
+        return _format_alpha(line.get("fixed_value"), size, "left")
 
     value = _resolve(line.get("expression"), doc, context)
     
@@ -136,7 +134,6 @@ def render_line(line, doc, context=None):
     else:
         frappe.throw(f"Tipo de exportacion BOE no soportado: {etype}", BOEError)
     
-    frappe.log_error(f"AEAT BOE [{seq}/{label}] expr={repr(line.get('expression'))} value={value} -> {repr(result)}")
     return result
 
 
