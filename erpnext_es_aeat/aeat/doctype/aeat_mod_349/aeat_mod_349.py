@@ -29,6 +29,9 @@ class AEATMod349(AEATReportMixin, Document):
 
     @frappe.whitelist()
     def calculate(self):
+        # Reload to avoid constant-field errors when called via run_doc_method
+        if not getattr(self, "date_start", None) or not getattr(self, "date_end", None):
+            self.reload()
         self.compute_period()
         self.set("lines", [])
         rows = []
