@@ -79,23 +79,18 @@ def _format_alpha(value, size, alignment="left"):
 
 
 def _format_integer(value, size, decimal_size=0):
-    frappe.log_error(f"AEAT DEBUG _format_integer: value={repr(value)}, type={type(value)}, size={size}")
     val = flt(value)
     if decimal_size:
         val = val * (10 ** decimal_size)
     n = int(round(val))
     body = str(abs(n))
     if n < 0:
-        result = ("N" + body).rjust(size, "0")[:size]
-    else:
-        result = body.rjust(size, "0")[:size]
-    frappe.log_error(f"AEAT DEBUG _format_integer result: {repr(result)}")
-    return result
+        return ("N" + body).rjust(size, "0")[:size]
+    return body.rjust(size, "0")[:size]
 
 
 def _format_float(value, size, decimal_size=2, apply_sign=False,
                   positive_sign="0", negative_sign="N"):
-    frappe.log_error(f"AEAT DEBUG _format_float: value={repr(value)}, type={type(value)}, size={size}, decimal_size={decimal_size}, apply_sign={apply_sign}")
     val = flt(value)
     negative = val < 0
     cents = int(round(abs(val) * (10 ** decimal_size)))
@@ -103,11 +98,8 @@ def _format_float(value, size, decimal_size=2, apply_sign=False,
     if apply_sign:
         sign_char = negative_sign if negative else positive_sign
         body = body.rjust(size - 1, "0")
-        result = (sign_char + body)[:size]
-    else:
-        result = body.rjust(size, "0")[:size]
-    frappe.log_error(f"AEAT DEBUG _format_float result: {repr(result)}")
-    return result
+        return (sign_char + body)[:size]
+    return body.rjust(size, "0")[:size]
 
 
 def _format_boolean(value, bool_yes="X", bool_no=" "):
@@ -117,35 +109,35 @@ def _format_boolean(value, bool_yes="X", bool_no=" "):
 def render_line(line, doc, context=None):
     etype = line.get("export_type")
     size = int(line.get("size") or 0)
-
-    # DEBUG logging
-    expr = line.get("expression", "")
-    if expr and not expr.startswith("="):
-        val = getattr(doc, expr, None) if not isinstance(doc, dict) else doc.get(expr)
-        frappe.log_error(f"AEAT DEBUG render_line: expr={expr}, val={val}, type={etype}, size={size}")
+    seq = line.get("sequence", "?")
+    label = line.get("label", "?")
 
     if etype == FIXED:
-        return _format_alpha(line.get("fixed_value"), size, "left")
+        result = _format_alpha(line.get("fixed_value"), size, "left")
+        frappe.log_error(f"AEAT BOE [{seq}/{label}] FIXED -> {repr(result)}")
+        return result
 
     value = _resolve(line.get("expression"), doc, context)
-    frappe.log_error(f"AEAT DEBUG _resolve returned: expr={expr}, value={value}, type={type(value)}")
-
+    
     if etype == ALPHA:
-        return _format_alpha(value, size, line.get("alignment") or "left")
-    if etype == INTEGER:
-        return _format_integer(value, size, int(line.get("decimal_size") or 0))
-    if etype == FLOAT:
-        return _format_float(
+        result = _format_alpha(value, size, line.get("alignment") or "left")
+    elif etype == INTEGER:
+        result = _format_integer(value, size, int(line.get("decimal_size") or 0))
+    elif etype == FLOAT:
+        result = _format_float(
             value, size,
             decimal_size=int(line.get("decimal_size") or 2),
             apply_sign=bool(line.get("apply_sign")),
             positive_sign=line.get("positive_sign") or "0",
             negative_sign=line.get("negative_sign") or "N",
         )
-    if etype == BOOLEAN:
-        return _format_boolean(value, line.get("bool_yes") or "X", line.get("bool_no") or " ")
-
-    frappe.throw(f"Tipo de exportacion BOE no soportado: {etype}", BOEError)
+    elif etype == BOOLEAN:
+        result = _format_boolean(value, line.get("bool_yes") or "X", line.get("bool_no") or " ")
+    else:
+        frappe.throw(f"Tipo de exportacion BOE no soportado: {etype}", BOEError)
+    
+    frappe.log_error(f"AEAT BOE [{seq}/{label}] expr={repr(line.get('expression'))} value={value} -> {repr(result)}")
+    return result
 
 
 def generate_from_lines(lines, doc, context=None):
@@ -159,9 +151,6 @@ def generate_from_lines(lines, doc, context=None):
 def generate(doc, config_name, context=None):
     """Generate the full BOE text for doc using config_name."""
     config = frappe.get_doc("AEAT BOE Export Config", config_name)
-    frappe.log_error(f"AEAT DEBUG generate: config={config_name}, lines={len(config.lines)}")
-    for line in config.lines:
-        frappe.log_error(f"AEAT DEBUG generate line: seq={line.sequence}, expr={repr(line.expression)}, type={line.export_type}")
     text = generate_from_lines(config.lines, doc, context)
 
     if config.record_length and config.record_length > 0:
