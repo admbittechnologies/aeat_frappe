@@ -46,6 +46,10 @@ class AEATMod303(AEATReportMixin, frappe.model.document.Document):
         if not self.boe_config_name:
             frappe.throw("El modelo 303 no tiene export BOE configurado.")
 
+        # Reload to get latest calculated values from DB (needed when called
+        # via run_doc_method with a partial doc dict)
+        self.reload()
+
         nif = frappe.db.get_value("Company", self.company, "tax_id") or ""
         nombre = self.company or ""
         ejercicio = str(self.year or "")
