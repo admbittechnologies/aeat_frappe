@@ -54,6 +54,8 @@ class AEATMod347(AEATReportMixin, Document):
 
     @frappe.whitelist()
     def export_boe(self):
+        # Reload to get latest calculated values from DB
+        self.reload()
         parts = [boe.generate(self, self.boe_config_name).ljust(500)[:500]]
         for line in self.lines:
             parts.append(boe.generate(self, self.boe_line_config_name, context=line.as_dict()).ljust(500)[:500])
